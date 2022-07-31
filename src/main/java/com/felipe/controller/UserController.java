@@ -32,7 +32,6 @@ public class UserController {
         return "index";
     }
 
-
     @GetMapping(value = "/getUsers")
     public List<User> getUsers() {
         return repository.findAll();
@@ -49,6 +48,19 @@ public class UserController {
         User user = new User();
         model.addAttribute("user", user);
         return "new";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateUser(@PathVariable(value = "id") Integer id, Model model){
+        User user = service.getUserById(id);
+        model.addAttribute("user", user);
+        return "update"; 
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteById(@PathVariable(value = "id") Integer id){
+        service.removeUser(id);
+        return "redirect:/";
     }
 
     @PostMapping("/save")
