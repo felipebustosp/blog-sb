@@ -9,31 +9,9 @@
 </head>
 <body>
     <div class="container my-2">
-        <h3>Users list</h3>
-        <table style="width:80%" class="table table-stripped table-responsive-md">
-            <thead>
-                <tr>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Location
-                    </th>
-                    <th>
-                        Options
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="user:${allUsers}">
-                    <td th:text="${user.user_name}"></td>
-                    <td th:text="${user.user_location}"></td>
-                    <td><a th:href="@{/update/{id}(id=${user.user_id})}" class="btn btn-primary">Update</a></td>
-                    <td><a th:href="@{/delete/{id}(id=${user.user_id})}" class="btn btn-danger">Delete</a></td>
-                </tr>
-                <a th:href="@{/addNew}">Add new User</a>
-            </tbody>
-        </table>
+        <h3>Main Page</h3>
+        <a href="/users">Users</a>
+        <a href="/posts">Posts</a>
     </div>
 </body>
 </html>

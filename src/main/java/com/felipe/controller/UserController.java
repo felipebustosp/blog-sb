@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.felipe.persistence.User;
-import java.util.List;
+//import java.util.List;
 import java.util.Optional;
 
 
@@ -26,15 +26,10 @@ public class UserController {
     @Autowired
     private UserServiceImpl service;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/users")
     public String mainPage(Model model) {
         model.addAttribute("allUsers", service.list());
-        return "index";
-    }
-
-    @GetMapping(value = "/getUsers")
-    public List<User> getUsers() {
-        return repository.findAll();
+        return "user/users";
     }
 
     @GetMapping(value = "/users/{id}")
@@ -43,27 +38,27 @@ public class UserController {
         return repository.findById(user_id);
     }
 
-    @GetMapping("/addNew")
+    @GetMapping("/user/new")
     public String addNewUser(Model model){
         User user = new User();
         model.addAttribute("user", user);
-        return "new";
+        return "user/new";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/user/update/{id}")
     public String updateUser(@PathVariable(value = "id") Integer id, Model model){
         User user = service.getUserById(id);
         model.addAttribute("user", user);
-        return "update"; 
+        return "user/update"; 
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/user/delete/{id}")
     public String deleteById(@PathVariable(value = "id") Integer id){
         service.removeUser(id);
         return "redirect:/";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/user/save")
     public String saveUser(@ModelAttribute ("user") User user){
         repository.save(user);
         return "redirect:/";

@@ -28,10 +28,10 @@
                 <tr th:each="user:${allUsers}">
                     <td th:text="${user.user_name}"></td>
                     <td th:text="${user.user_location}"></td>
-                    <td><a th:href="@{/update/{id}(id=${user.user_id})}" class="btn btn-primary">Update</a></td>
-                    <td><a th:href="@{/delete/{id}(id=${user.user_id})}" class="btn btn-danger">Delete</a></td>
+                    <td><a th:href="@{/user/update/{id}(id=${user.user_id})}" class="btn btn-primary">Update</a></td>
+                    <td><a th:href="@{/user/delete/{id}(id=${user.user_id})}" class="btn btn-danger">Delete</a></td>
                 </tr>
-                <a th:href="@{/addNew}">Add new User</a>
+                <a th:href="@{/user/new}">Add new User</a>
             </tbody>
         </table>
     </div>

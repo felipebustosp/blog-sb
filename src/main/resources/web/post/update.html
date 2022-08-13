@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+    <h3>Update User</h3>
+    <div class="container">
+        <form action="#" th:action="@{/post/save}" th:object="${post}" method="post">
+            <input type="hidden" th:field="*{postId}">
+            <input type="text" th:field="*{postContent}" placeholder="Text" class="form-control mb-4 col-4">
+            <!-- <input type="text" th:field="*{postAuthor}" placeholder="Author" class="form-control mb-4 col-4"> -->
+            <button type="submit" class="btn btn-info col2">Save Post</button>
+        </form>
+        <a th:href="@{/posts}"></a>
+    </div>
+</body>
+</html>

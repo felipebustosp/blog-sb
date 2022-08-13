@@ -10,12 +10,12 @@
 <body>
     <h3>Add User</h3>
     <div class="container">
-        <form action="#" th:action="@{/save}" th:object="${user}" method="post">
+        <form action="#" th:action="@{/user/save}" th:object="${user}" method="post">
             <input type="text" th:field="*{user_name}" placeholder="User Name" class="form-control mb-4 col-4">
             <input type="text" th:field="*{user_location}" placeholder="User Location" class="form-control mb-4 col-4">
             <button type="submit" class="btn btn-info col2">Save User</button>
         </form>
-        <a th:href="@{/}"></a>
+        <a th:href="@{/users}"></a>
     </div>
 </body>
 </html>
